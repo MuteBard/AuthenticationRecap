@@ -20,7 +20,7 @@ exports.signup = function(req, res, next){
 
         user.save(function(err){
             if (err){ return next(err); }
-            res.json(user)
+            res.json({success : true })
         });
    });
  
