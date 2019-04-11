@@ -10,7 +10,6 @@ const mongoose = require('mongoose')
 // DB Setup
 mongoose.connect('mongodb://localhost:27017/auth', { useNewUrlParser: true });
 
-
 // App Setup
 // Middleware, any incoming request is going to be passed into these
 // App.use() registers them as middleware
