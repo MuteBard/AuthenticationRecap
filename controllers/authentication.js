@@ -4,7 +4,11 @@ const User = require('../models/user')
 exports.signup = function(req, res, next){
     const email = req.body.email;
     const password = req.body.password;
-   // See if a user with a given email exists, after this search is completed, invoke a callback
+
+    if (!email || !password){
+        return res.status(422).send({error : "Need to provide a username or password"})
+    }
+   // See if a user with a given email exists, a duplicate, after this search is completed, invoke a callback
     User.findOne({email: email}, function(err, existingUser){
         if (err){ return next(err)}
           //If a user with email does exist, return an error
