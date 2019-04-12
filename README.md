@@ -20,7 +20,7 @@
 
 ---
 
-##Using 3 Strategies**
+## Using 3 Strategies
 2 for JWTStrategy for Signing up and interacting with requests, 1 for localStrategy for Signing in
 ![Strats](https://cdn.discordapp.com/attachments/562738302046830592/566296636402303003/Screen_Shot_2019-04-12_at_12.17.53_PM.png)
 
