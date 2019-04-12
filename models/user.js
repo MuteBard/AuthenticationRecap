@@ -30,6 +30,14 @@ userSchema.pre('save', function(next){
     })
 })
 
+// methods property where we can define our own functions
+userSchema.methods.comparePassword = function(canidatePassword, callback){
+    bcrypt.compare(canidatePassword, this.password, function(err, isMatch){
+        if (err) { return callback(err) }
+        callback(null, isMatch)
+    })
+}
+
 // Load the userSchema which corresponds to a collection called 'user' into mongoose and create the model class 
 const modelClass = mongoose.model('user', userSchema)
 
