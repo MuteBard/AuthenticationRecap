@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { reduxForm, Field } from 'redux-form'
 
 class Signup extends Component {
     render (){
@@ -6,9 +7,20 @@ class Signup extends Component {
             <form>
                 <fieldset>
                     <label>Email</label>
+                    <Field
+                        name="email"
+                        type="text"
+                        component="input"
+                        autoComplete="none"/>  
                 </fieldset>
                 <fieldset>
                     <label>Password</label>
+                    <Field
+                        name="password"
+                        type="password"
+                        component="input"
+                        autoComplete="none"
+                        />
                 </fieldset>
             </form>
 
@@ -16,4 +28,6 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+//#1 now we can make use of the field tag
+const options = { form : 'signup'}
+export default reduxForm(options)(Signup);
