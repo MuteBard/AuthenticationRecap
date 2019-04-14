@@ -6,4 +6,4 @@ class Feature extends Component{
     }
 }
 
-export default Feature
+export default requireAuth(Feature)
