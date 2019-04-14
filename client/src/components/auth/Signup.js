@@ -1,18 +1,17 @@
 import React, { Component } from "react"
 import { reduxForm, Field } from 'redux-form'
+import { connect } from 'react-redux'
+import { compose } from 'redux';
+import * as actions from '../../actions'
 
 class Signup extends Component {
 
     onSubmit = (formProps) => {
-        console.log(formProps)
-
+        this.props.signup(formProps)
     }
-
-
+ 
     render (){
-
         const { handleSubmit } = this.props;
-
         return(
             <form onSubmit={handleSubmit(this.onSubmit)}>
                 <fieldset>
@@ -41,4 +40,12 @@ class Signup extends Component {
 
 //#1 now we can make use of the field tag
 const options = { form : 'signup'}
-export default reduxForm(options)(Signup);
+
+export default compose(
+    connect(null, actions),
+    reduxForm(options) 
+)(Signup)
+
+
+
+
