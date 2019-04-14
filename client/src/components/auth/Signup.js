@@ -31,9 +31,9 @@ class Signup extends Component {
                         autoComplete="none"
                         />
                 </fieldset>
+                <div>{this.props.errorMessage}</div>
                 <button>Sign up</button>
             </form>
-
         )
     }
 }
@@ -41,8 +41,12 @@ class Signup extends Component {
 //#1 now we can make use of the field tag
 const options = { form : 'signup'}
 
+function mapStateToProps(state){
+    return {errorMessage : state.auth.errorMessage};
+}
+
 export default compose(
-    connect(null, actions),
+    connect(mapStateToProps, actions),
     reduxForm(options) 
 )(Signup)
 
