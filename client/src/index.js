@@ -11,9 +11,11 @@ import Welcome from './components/Welcome'
 import Signup from './components/auth/Signup'
 import Feature from './components/Feature'
 
+const initialState = { auth : { authenticated : localStorage.getItem('token') }}
+
 const store = createStore(
     reducers,
-    {},
+    initialState,
     applyMiddleware(reduxThunk)
 )
 
